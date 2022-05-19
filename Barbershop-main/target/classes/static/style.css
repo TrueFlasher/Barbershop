@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Prata|Work+Sans:600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /*font-family: 'Lato', sans-serif;*/
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #282828;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Prata', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+}
+
+img {
+    width: 100%;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background: #282828;
+}
+
+.navbar li,
+.btn {
+    font-family: 'Prata', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-family: 'Prata', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 25px;
+}
+
+
+/* NAVBAR */
+
+
+/* START */
+
+.startSection {
+    padding-top: 200px;
+    padding-bottom: 160px;
+}
+
+#start {
+    background: linear-gradient(to right, #282828, rgba(27, 31, 52, 0.0)), url(../img/start.png);
+    min-height: 100vh;
+    background-position: right;
+    background-size: cover;
+}
+
+.startText {
+    font-family: 'Prata', sans-serif;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    opacity: 30%;
+}
+
+
+/* START */
+
+
+/* BTN */
+
+.btn {
+    border-radius: 0;
+    padding: 16px 36px;
+    font-family: 'Prata', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: all 0.8 ease;
+}
+
+.btn-brand {
+    background-color: grey;
+    color: white;
+}
+
+.btn-brand:hover {
+    color: grey;
+    border-color: black;
+    background-color: transparent;
+}
+
+.btn-entrance {
+    padding: 8px 16px;
+    color: white;
+    border-color: white;
+    background-color: transparent;
+    margin-left: 50px;
+}
+
+.btn-entrance:hover {
+    background-color: grey;
+    color: white;
+}
+
+
+/* BTN */
+
+
+/* SERVICES */
+
+.servicesSection {
+    padding-top: 50px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.servicesSection h1,
+h3 {
+    color: #282828;
+}
+
+.serviceTitle {
+    margin-top: 10px;
+}
+
+.price {
+    color: grey;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'Prata', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* SERVICES */
+
+
+/* SECTION1 */
+
+.section1 {
+    background-color: #282828;
+    color: #fff;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+.section1 .clientCounts {
+    color: #9e8a78;
+    font-size: 80px;
+}
+
+.section1 h1 {
+    font-size: 30px;
+}
+
+.line {
+    padding-bottom: 10px;
+    width: 300px;
+    border-top: 3px solid #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* SECTION1 */
+
+
+/* COMMAND */
+
+.single-content {
+    position: relative;
+    transition: .3s;
+    margin-top: 10px;
+}
+
+.single-content .text-content,
+.single-content::after {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 40px;
+}
+
+.single-content::after {
+    content: '';
+    display: block;
+    background: grey;
+    top: 200px;
+    bottom: 20px;
+    opacity: 0;
+    transform: rotate3d(-1, 1, 0, 100deg);
+    transition: .4s;
+}
+
+.single-content:hover::after {
+    opacity: .9;
+    transform: rotate3d(0, 0, 0, 0deg);
+}
+
+.text-content {
+    top: 80%;
+    opacity: 0;
+    z-index: 1;
+    transform: translate(10%, -30%);
+    transition: .3s;
+    text-align: center;
+    color: #fff;
+}
+
+.nameOfMemberOfteam {
+    color: white;
+}
+
+.single-content:hover .text-content {
+    opacity: 1;
+    transform: translate(0, -50%);
+    transition-delay: .3s;
+}
+
+
+/* COMMAND */
+
+
+/* CONTACT */
+
+.textContact {
+    text-align: center;
+    justify-content: center;
+    color: #9e8a78;
+    font-size: 50px;
+    padding-top: 50px;
+}
+
+/* CONTACT */
+
+.footer {
+    background-color: grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    text-align: center;
+}

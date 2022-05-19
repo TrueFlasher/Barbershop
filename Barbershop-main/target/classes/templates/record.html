@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Записаться в Barbershop Griga</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body id="home" data-bs-spy="scroll" data-bs-target=".navbar">
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark" style="margin-bottom: 50px">
+  <div class="container">
+    <a class="navbar-brand" href="#" th:href="@{/}">BadBeard</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/" th:href="@{/}">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/" th:href="@{/#services}">Услуги</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/" th:href="@{/#command}">Команда</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/" th:href="@{/#contact}">Контакты</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a sec:authorize="isAuthenticated()" sec:authentication="principal.username" class="nav-link dropdown-toggle username" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul sec:authorize="isAuthenticated()" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Записи клиентов</a></li>
+            <li><a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_USER')" th:href="@{/userRecords}">Мои Записи</a></li>
+            <li><a class="dropdown-item" href="#" th:href="@{/logout}">Выйти</a></li>
+          </ul>
+        </li>
+        <a href="#" sec:authorize="!isAuthenticated()" class="btn btn-entrance" th:href="@{/login}">Войти</a>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--Navbar-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+      <div th:if="${param.success}">
+        <div class="alert alert-info">Вы записаны, с вами скоро свяжутся по телефону!</div>
+      </div>
+      <form th:action="@{/record}" method="post" th:object="${records}">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputEmail4">Дата</label>
+            <input type="text" class="form-control" name="date"  required autofocus="autofocus" placeholder="10.08.2022">
+          </div>
+          <div class="form-group">
+            <label for="inputPassword4">Время</label>
+            <input type="text" class="form-control" name="time"  required autofocus="autofocus" placeholder="12:00">
+          </div>
+
+
+          <div class="form-row">
+            <label for="inputState">Барбер</label>
+            <select id="inputState" class="form-control" name="barber">
+              <option selected>Влад А4</option>
+              <option>Макс Корж</option>
+              <option>Игорь Крутой</option>
+              <option>Егор Крид</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="inputState">Услуга</label>
+            <select id="inputState1" class="form-control" name="service">
+              <option selected>Мужская стрижка</option>
+              <option>Моделирование бороды</option>
+              <option>Детская стрижка</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 20px; background-color: grey; border-color: black;">Записаться</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
